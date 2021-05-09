@@ -1,0 +1,65 @@
+azure traning 
+
+* rent computer resources on demand
+	- 1k services ( in azure market place) 
+	- 3rd part services as well 
+	- databases
+	- chat bots 
+	- media services
+	- machine learning 
+* charged for time of use
+
+* requirements for exam 
+- describe cloud conepts
+	- benefits 
+	* cost can even scale down, grow into  as neeeded,
+	availablity, security, global reach, on-demand services,
+	agile (less then a dollar and hour) 
+	* capex and opex | capital expensure and operational 
+	expendendture( have money upfront to run)
+	* get savings on opex insteady of using all capex like buying servers 
+	cosumtpion based model - pay by min or hour or by execution 
+	* 4 mins of downtime for 99.99% of uptime per month 
+	*  
+	IaaS (infrastructe as service) VM, networking, 
+				laod balancers, firewalls (piece of hardware)
+	PaaS (platform as a service - compling code in zip file and cloud runs that code.. 
+	      web apps or app services, without access to the hardware (manage ram,cpu,disk)
+	SaaS (sofware as a service) - dropbox, docs, office365, - web browser. 
+			not uploading your CODE, using product that is being provided to you (active directory)
+	
+	shared responsiblity model (m is microsft c is customer)
+	* on prem - all customer responsbility 
+	* iias - all physical attributes are microsofts 
+	* paas - scaling is responsibiliyt, os is M, network, app and AD are shared
+	* saas -  only share AD - infra is owned by m and rest is c 
+	* infromatin and acccoutns are always customer 
+	
+	serverless model - less access to servers or know how many are running, 
+	                   scaling is not customers responsibliity, leaving all to cloud
+                       is possible you pay nothing if no one visits your website.
+    * different serverles offeres ( db,sql,kubernetes,azure funcction "compute" 					   
+	*s1 , s2 and s3 (is performance) 
+	
+	types of clouds
+	* public cloud - anyone can go and sign up for it and open for public
+					leasing or renting services 
+	* private cloud - acts as a cloud but customer owns or leases the hardware.
+						can use azure stack has protal and looks just like public 
+	* hybrid cloud -  combination of public cloud and private owned datacenter 
+	
+	azure services
+	- core
+	* regions - 60+ regions (not all region is avilable to everyone like gov/china)
+	* region pairs - data exist in one.. pair region is the backup (highest speed, lowest latency)
+	* 
+	- core resources 
+	
+	
+	
+	
+	
+	
+	
+	
+	
