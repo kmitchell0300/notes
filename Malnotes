@@ -1,0 +1,78 @@
+malware
+
+process for dynamic  
+
+1)trid.exe
+2)detect it easy
+3)strings.exe
+4) hxd.exe - hexeditor - can search for words 
+5) virus total - detection signatures, names, realtiosn, behvaior 
+
+tools:
+1)trid.exe - 
+2)detect it easy -
+3)strings.exe - find strings
+4) 7zip - sfx files/archives  
+5) renamer - allows to rename mulitple files 
+6) sysint - process mon TBD
+
+
+ wrapper - has everything to run yoru malware will work regarldess of what user installed ( script > vm > unpacker ) 
+* how to get code from wrapped file --> dynamically (extract in hex editor, if not encrpyted) can use strings.exe - identify wrapper with (idetify easy and serach for extraction tool) 
+* they put embedded files in %temp fodler 
+* pws - stankd for password in virus totalt 
+
+
+create snap shot
+disable network 
+start process monitor from sys internals as admin
+	drop down > category is write.. add
+	drop down > process name begins with > wrapped > add
+	drop down > proces sname is cmd.exe > add ( becuase of batch file) 
+rename file.exe 
+dlete / clear event 
+turn off capture after running. 
+
+---grabbing files that get deleted---
+1) deny folder deletion permissions
+- (this does not always work) the file is being deleted or is no longer there in %temp > will deny deletion writes to the folder 
+-  > righ tclik on temp > advance > seucirty > system > select users "everyone" > delete subfolders and files and dlete .. apply 
+
+2) break points and api monitor (portable > version of latest )
+- need to know what to capture
+- find > writefiles > find next > put a checkmark on that and EX version (extended)
+- finde createprocessA & createprocessW (check mark those) 
+- run file (wrapped1.exe) 
+- find the process creation point > right click break poin > before call (has to write everythign before executing) 
+
+3)
+strings
+- use and find encrypting version software
+
+15.0 - 7zip had decompiler only verion for nsi.. NSIS..	 - sourceforge - 1505-x64.exe - file manger - will unpack  
+
+7zip can execure within a packed file 
+sfx files try 7zip 
+
+renaming tool:
+"renamer" if you need to rename a ton of files - portable version . den4b.com 
+
+ triaging multiple files 
+- see in stirngs.exe if other fiels are refrenced 
+- power shell scrip to run trid on all files..
+- look to see if there is a command line version to to pipe all files to it
+
+ASEPs -  auto start extensibility points (runs automatically without user interaction) 
+1. system persistence - windows - autorun ( run,runonce,runoncexe, startup folder, scheduled tasks (xml in sys32), SCM
+2. program loader abuse - ifeo(image files) , extension hijacking , shortcut manipulation, shim db, com hijacking 
+3. applicatoin abuse - plugin extensions - ( trojan system binary, office add-ins, browser helper objects (BHO)
+4. system behavior - winLogOn - file manger sessions(explorer.exe), userinit.exe, DLL, appinit(secureboot), 
+
+**asep tools (sysinternals autoruns), winesap forensics(memory), farbar recovery scan tool
+
+
+windows registry 
+* place for malware to persist, autorun etc, filess malware lives in registry  
+* reg_sz - fixed lenght string - file  names
+* reg_dword - true or false 1 or 0 
+* reg_binary - 
