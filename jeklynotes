@@ -17,3 +17,6 @@ bundle install
 7. _config. - base url  & url fill in... (base remove https: only have /whater ) (for url have only https://kmitchell0300.github.io)
 
 index.markdown --- highest priority
+
+errors:
+- webrick --- "bundle add webrick"
