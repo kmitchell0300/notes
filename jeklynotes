@@ -1,0 +1,20 @@
+
+ITS THE CONFIG FILE!!!!!!!jeklye!!!!!!
+
+pply dinky theme -- https://pages-themes.github.io/dinky/
+https://www.youtube.com/watch?v=EmSrQCDsMv4
+1. install ruby
+2. install jekyl
+3. install bundle
+4. create repo in github
+4 cmd - jekly new . --force
+5 update repo
+4. test website: bundle exec jekyll serve --livereload (http://localhost:4000)
+
+bundle update
+bundle install 
+(if you get an error delete gem.lock)
+6. cmd: bundle update github-pages
+7. _config. - base url  & url fill in... (base remove https: only have /whater ) (for url have only https://kmitchell0300.github.io)
+
+index.markdown --- highest priority
