@@ -48,5 +48,9 @@ you can drag and drop all files over to not use remote and it woud be local
 2. edit gem file (comment out gem minia)
 3.bundle update 
 
+when you fork a new repo
+- run "bundle install"
+- edit config.yml
+
 
  custom url...
