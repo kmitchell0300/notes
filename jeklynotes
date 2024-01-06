@@ -1,22 +1,52 @@
+GENERAL SETUP:
+
 
 always start with SUDO SU first
-pply dinky theme -- https://pages-themes.github.io/dinky/
 https://www.youtube.com/watch?v=EmSrQCDsMv4
 1. install ruby
 2. install jekyl
 3. install bundle
 4. create repo in github
-4 cmd - jekly new . --force
-5 update repo
-4. test website: bundle exec jekyll serve --livereload (http://localhost:4000)
-
-bundle update
-bundle install 
+5 cmd - jekly new . --force (crates the site with all folders and styles)
+6 update repo
+7. test website: bundle exec jekyll serve --livereload (http://localhost:4000)
+8.modify gem files
+9.modify config file
+10.bundle update
+11.bundle install 
 (if you get an error delete gem.lock)
-6. cmd: bundle update github-pages
-7. _config. - base url  & url fill in... (base remove https: only have /whater ) (for url have only https://kmitchell0300.github.io)
+12. cmd: bundle update github-pages
+13. _config. - base url  & url fill in... (base remove https: only have /whater ) (for url have only https://kmitchell0300.github.io)
 
-index.markdown --- highest priority
 
 errors:
-- webrick --- "bundle add webrick"
+- webrick --- "bundle add webrick" 
+
+
+themes:
+color from ---> https://jamstackthemes.dev/demo/theme/jekyll-theme-material-you/
+layout from --> https://jamstackthemes.dev/demo/theme/jekyll-indigo/
+
+https://jekyllrb.com/docs/themes/
+
+pages.github.com/themes
+jekyllrb.com/docs/themes
+jamstackthemes.dev
+
+* your theme is pointed and updated 
+
+Open the Minima theme
+	MacOS: open $(bundle info --path minima)
+	Windows: explorer c:\Ruby26-x64\lib\rub\gems\2.6.3\gems\minima-2.5.1
+	UPDATE: A viewer recommends this for Linux:
+	"xdg" : Linux: xdc-open $(bundle info --path minima)
+ go to theme folder then > layout > home.html
+**** you can create a "home.html" file it will overwrite under "_sites" folder
+you can drag and drop all files over to not use remote and it woud be local
+
+1. edit config file (comment out theme )
+2. edit gem file (comment out gem minia)
+3.bundle update 
+
+
+ custom url...
