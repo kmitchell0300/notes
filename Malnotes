@@ -76,3 +76,164 @@ windows registry
 * reg_sz - fixed lenght string - file  names
 * reg_dword - true or false 1 or 0 
 * reg_binary - 
+
+
+*create snapshow
+- upper left > machine > take snapshot 
+- name (clean snapshot)
+
+*resize machine
+- top bar > device > insert guest additins cd image 
+- docudments > this pc > cd drive > virtual box guest edditin > click on vboxwindowsadditions-amd64
+- clieck yes - next - install - finish - reboot now 
+- log in (now you can resize ) 
+
+*see hidden files and folders
+- file explorer
+- view > optins > view > show hidden files,folders&drives
+- remove > any checkmark under "hide" 
+- displays warning > selet yes
+- if working you should see desktop.ini on your desktop
+
+*disable win defender
+- search in browser > defender remover ionuttbara 
+ github.com/ionuttbara/windwos-defender-remover/release
+- releases > go to version 12.4 > assets > defenderRemover.exe
+- highlight mouse over download > select three button > keep > show more > keep anyway
+- tells you malicious > click more info > run anyway > yes
+- select Y in cmdline > hit enter
+- the machine will reboot
+WINDOW DEFENDER IS NOW REMOVED
+- test > go to www.eicar.org > download anti malware testfile > righclick > save as link > eicar.com file 
+
+* how to get malware
+- since we have internet > downlaod directly > github from udemypage - https://github.com/struppigel/HedgehogLab > download zip > archvies files 
+
+* transfering malware 
+- always encrypt malware with the password "infected" -industry standard 
+- (transfwering between main and guest host)
+    - power off machine first > shared files (power off state)
+    - settings on virtualbox > shared folders > selected + and select a folder on you machine > name it > readonly > check [] read only & [] auto-mount > click ok 
+- sometimes you might need to trasnfer logs but no read only 
+- name > writable > no check marks > no mount and click ok  
+- writable is not visbile you need to create a batch file >
+ * open notepad on vitual host > "net use h: \\vboxsrv\Writeable_shared > save as batch file > mount_sharedfolder.bat > select all files in dropdown ** importat the name of the extenstio SHOULDNT BE the same name of the folder** make writable for host name and mountable_shared for name in virtuablbox foldername
+
+ * create second file to remove moutn 
+ - open notepad > "net use H: /delete > file save .bat> unmount_sharedfolder.bat > select all files in downdown on save 
+
+* securre folder created on windows
+- shared folder on host machine chcaning (WRITEABLE FODLER )
+- deny execution > right click folder > properties > security > edit > add > eveyone > okay > click on everyone > advance > everyone > edit > show advance permission > dropdown type: deny > drop down under applies to: this fodler,subfolder  & files > uncheck everything but (traveser folder/execute files) > click ok and ok > warning > click continue  > 
+* teste by puting calc.exe in folder and trying to open it > add new folder in folder and copy calc.exe and try to open it 
+
+* opening malware
+- rename file with ".vir" extension > it makes it so it cant load 
+
+
+* network settings 
+- virtuabl box > setttings > network > attached to > not attached 
+
+
+1st malware
+* machine > take snapshot (EVERY TIME BEFORE RUNNING)
+exmaple name : first sample execution 
+* rename with .exe extenstion > getting rid of .vir 
+* double click to run. needs .net framework 3.5 should see
+* install .net framework
+* disable internet
+* snapshot with .net 
+
+reboot from snapshot
+* file close > power off machine > restore current snapshot
+* 2nd option > virtual box > 3 dots > snapshot > make sure to uncheck (create a snapshot of the current smachine state)
+click start > you should see restoring machine 
+
+
+disable windows updates
+- group policy editor 
+- windows key > type group policy > select edit gorupu policy >  commputer config > admin templates > windows components > windows update > specify intranet microsoft updates service location > select enabled > set intranet url > type anything that doesn exist > https://ajdflk;sfjlsd;jf.com > click ok 
+
+
+triage
+* file type - (TrID, hex editor,)
+* whole file examination ( strings, visualization, hex editor)
+* metadata view ( file format viewer, headers)
+* automatic reports (sandbox reports, autoamtic analysis, antivirus scan results)
+* first reseach (avail on internet , comments of others)
+
+
+downloads
+* [x] sysinternals 
+* [x] notepad++
+* [x] HxD - mh-nexus.de
+* [x] TrID - mark0.net/soft-trid-e.html - win 32 and download trIDDef.trd package  
+* [x] Detect it Easy - github.com/horsicq/detect-it-easy
+* [x] Ink_parser - code.google.com/archive/p/lnk-parser/downloads#
+
+saved websites
+* [x] malpedia
+* [x] VirusTOtal
+* [x] MS-SHLLINNK format 
+
+USING TRID  (tells you what kind of file it is)
+*has large database of file extensions, update regulary might need to pull down list frequently
+* open command line 
+* go desktop > type: trid.exe
+* trid.exe filename
+example output - .LNK, unknown, exe 
+
+USING detectITEasy(tells you file types and more)
+run die.exe > drag and drop file into it
+
+using strings.exe (sysinternals) use 4 for small files in kb and 6 for largerfiles (must be in the directory of sysinternals where folder is located)
+*open powershell
+*run .\sysinternalsSuite\strings.exe -n 4 .\filename
+
+using LNK parser ( )
+* in powershell in lnkparser directory type the following:
+* .\lnk_parser_cmd.exe .\filename
+* can create an html report with -w (.\lnk_parser_cmd.exe -w .\filename)
+* look at (lnk target id list) this shows you what is happeneidng , windows, system32, cmd.exe
+* look at string data - if you see /c with cmdds this is the what command is run
+* to see the icon you can change file name to .lnk ( before you do this make sure in vm and have restore point it can execute by file name change way windows treats the fiel )
+
+
+using hxd (hex editor)
+* just open .exe and drag and drop file
+
+antivirus detection names: all different for companies 
+example: trojan:win32/gandcrab.af.dam - (type,platform,family,variant,modifier)
+
+platform - 32bit,powershell,.net,linux
+type - trojan(default type for unknown), rat,
+familiy - agent(default name,means nothing, generic), gen i.e generic,heur i.e heuristic which detectino componont saud its malware or malawre family 
+variant  - sinature counter or id (for anti virus company)
+modifer - optional
+* krypt - packed, MS - microsoft - ai is artificiual intelegence, inject = packed , antixy (goes after antivirus mechnism delete entries) , antivm - does not run in vm, xyfake - imitate adobe or ms file, (razy,kazy,zusy,graftor,)- is all tools/vendor finding it
+
+AUTOSCANNIG
+* virutotal - detection names
+* from the information spit out on virus total and malware families you might see names you dont recongnize.. use malpedia to look them out. example: houdini .. .then it will tell you more about the malware and you can tell if your anlaysis is the same and malware already found 
+
+
+cmd prompt - notes: "&" seperates new lines. you can replace them with new lines.  
+
+wrapper - has everythign to run your malware wil work redhardless of what user installed (script>vm>unpckar) 
+howto get coe from wrapped file > dynamiccaly (extract in hex editor, if not encrpyted) can use stings.exe - identify wrapper with (identify easy and seacrh for extraction tool)
+
+ORDER PROCESS ON SAMPLE:
+* trid - see what the fiel format is 
+* virus total sample (look at behvior and file drop )
+* strings 
+*  sysinternals - look at strings ( )
+* lnk parser (arguemtns to see taks )
+* break appart any arguments to see what its doing.. manual if CMD commands or powershell etc. (identify line breaks ; or & etc )
+    use get-help command in powershell - update-help (get-help -name NAME)
+* 
+
+
+download
+* api monitor - rohitab.com/apimonitor 
+* 7zip - sourceforge.net/projects/sevenzip/files/7-zip/15.05
+*renamer - den4b.com/products/renamer
